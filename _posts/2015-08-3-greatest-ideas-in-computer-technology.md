@@ -17,7 +17,6 @@ In this post I will talk about some of the greatest ideas in computer hardware t
 ##					  Moore's Law
 
 
-
 +  Moore''s law states that the size of transistors will approximately halved every 18 months, this will in effect increase the performance
 of computing technology to twice it''s previous performance, because now more transistors can fit into a single core processor, hence 
 more throughput in terms of computer performance. Note that if transportation technologies had kept up with the pace of that of computers, 
@@ -53,7 +52,6 @@ depending on the outcome of application, they can also be used in enabling the s
 
 
 ##					   Power Wall
-
 
 
 +  Every economist will agree that nothing goes on forever, so here we have it the power wall. Hence, we can''t keep shrinking the size of transistors
