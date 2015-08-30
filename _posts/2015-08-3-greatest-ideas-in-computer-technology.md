@@ -11,8 +11,10 @@ tags:
 ---
 
 In this post I will talk about some of the greatest ideas in computer hardware technology.
-					**Moore''s Law**
-        
+
+
+
+					**Moore''s Law**        
 + Moore''s law states that the size of transistors will approximately halved every 18 months, this will in effect increase the performance
 of computing technology to twice it''s previous performance, because now more transistors can fit into a single core processor, hence 
 more throughput in terms of computer performance. Note that if transportation technologies had kept up with the pace of that of computers, 
@@ -28,7 +30,6 @@ of pollution. Due to the fact people can pass on information through long distan
 
 
 				**Advancement in Human Genome**
-
 + HGP still remains one of the greatest feats of exploration in history to understand our biological makeup as species dwelling on a planet as
 part of the cosmos yet to explore. Instead of an outward exploration of the cosmos, this is by far another philosophical approach with is rather maintained
 inward. The reduction in cost of manufacturing high performance computers has enable international research effort to sequence and map collectively genes 
