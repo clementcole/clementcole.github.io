@@ -7,22 +7,22 @@ dropcap:	   true
 # Change url to your domain. Leave localhost server or blank when working locally.
 # or use the hint from http://jekyllrb.com/docs/github-pages/ to keep this the same 
 # whether working locally or remotely. Start Jekyll with: jekyll serve --baseurl ''
-url:        	 http://clementcole.github.io
+url:        	 http://www.codeinventory.com
 
 # Owner/author information
 owner:
-  name:           Clement Cole
-  avatar:         clementcole.jph
-  email:          clementcole@my.unt.edu
+  name:           Amey Jadiye
+  avatar:         ameyjadiye.jpg
+  email:          ameyjadiye@gmail.com
   # Use the coder's toolbox at http://coderstoolbox.net/string/#!encoding=xml&action=encode&charset=us_ascii to encode your description into XML string
   description:    Programming is 1% knowledge, 2% ability and 97% getting the ability to work with the knowledge :)
   # Social networking links used in footer. Update and remove as you like.
-  twitter:        clement_cole
-  facebook:       clement.cole.5
-  github:         clementcole
-  instagram:      clementcole
+  twitter:        ameyjadiye
+  facebook:       ameyjadiye
+  github:         ameyjadiye    
+  instagram:      ameyjadiye
   # For Google Authorship https://plus.google.com/authorship
-  google_plus:    https://plus.google.com/u/0/+clementacole75
+  google_plus:    https://plus.google.com/u/0/+AmeyJadiye
 
 # Analytics and webmaster tools stuff goes here
 google_analytics:   UA-46791108-1
@@ -43,7 +43,7 @@ links:
     url: /about
 
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-timezone:    America/Los_Angeles
+timezone:    Asia/Calcutta
 future:      true
 highlighter: pygments
 markdown:    kramdown
