@@ -1,7 +1,7 @@
-title:            CodeInventory
-description:      "Nerd's feeder!"
+title:            Geek Blogger
+description:      "GEEK BLOGGER"
 logo:             logo.png
-disqus_shortname: codeinventorycom
+disqus_shortname: clementcole
 share:            true
 dropcap:	   true
 # Change url to your domain. Leave localhost server or blank when working locally.
@@ -15,7 +15,7 @@ owner:
   avatar:         clementcole.jpg
   email:          clementcole@my.unt.edu
   # Use the coder's toolbox at http://coderstoolbox.net/string/#!encoding=xml&action=encode&charset=us_ascii to encode your description into XML string
-  description:    Programming is 1% knowledge, 2% ability and 97% getting the ability to work with the knowledge :)
+  description:    This is 8% luck, 20% skill, 15% concentrated power of logic, 5% pleasure, 50% pain and 100% reason to remember what you work for. 
   # Social networking links used in footer. Update and remove as you like.
   twitter:        clement_cole
   facebook:       clement.cole.5
