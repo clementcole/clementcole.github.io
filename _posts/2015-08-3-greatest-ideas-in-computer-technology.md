@@ -14,7 +14,8 @@ In this post I will talk about some of the greatest ideas in computer hardware t
 
 
 
-					# Moore's Law
+					## Moore's Law
+
   Moore''s law states that the size of transistors will approximately halved every 18 months, this will in effect increase the performance
 of computing technology to twice it''s previous performance, because now more transistors can fit into a single core processor, hence 
 more throughput in terms of computer performance. Note that if transportation technologies had kept up with the pace of that of computers, 
@@ -30,7 +31,8 @@ and tablets or even a teenager''s ipod. Lets not also forget that today''s techn
 of pollution. Due to the fact people can pass on information through long distances without the need for transportation :p.
 
 
-				# Advancement in Human Genome
+				## Advancement in Human Genome
+
   HGP still remains one of the greatest feats of exploration in history to understand our biological makeup as species dwelling on a planet as
 part of the cosmos yet to explore. Instead of an outward exploration of the cosmos, this is by far another philosophical approach with is rather maintained
 inward. The reduction in cost of manufacturing high performance computers has enable international research effort to sequence and map collectively genes 
@@ -38,14 +40,16 @@ inward. The reduction in cost of manufacturing high performance computers has en
 to people''s genetic makeup. Thanks to the advancement of the digital and information revolution :p.
 
 
-				   # Ubiquitous Computing
+				   ## Ubiquitous Computing
+
   Electrical/computing engineering where user''s interact with computers in different forms or hardware embedded in multiple forms of embedded systems. 
 Embedded systems architecture can be seen in different forms such as wearable technology in the form of glasses (google glass), watches(samsung gear fit), 
 or even NordicTrack iFit for monitoring heart pulses. Although, these technologies could be considered as pervasive when applied in a malicious sense 
 depending on the outcome of application, they can also be used in enabling the safety of others with the right intent :p.
 
 
-					  # Power Wall
+					  ## Power Wall
+
   Every economist will agree that nothing goes on forever, so here we have it the power wall. Hence, we can''t keep shrinking the size of transistors
 forever just to create more logic gates to fit inside of integrated circuitry in order to increase computer performance. Note that transistors can''t be 
 reduced to the size of atoms. Also something else to note is that, there is always leakeage of power consumption by transistors, eventually the consumption
