@@ -86,94 +86,7 @@ MOV AC0, *AR2     ; Store AC0 in 0x102
   * The next step is to perform the reverse of step number 1. by storing the resultant value stored in AC0 back into the designation register assigned in step 1.
 
 ### Another example: 
-                    <?xml version='1.0'?>
-                    <math xmlns='http://www.w3.org/1998/Math/MathML'>
-                     <semantics>
-                      <apply>
-                       <times />
-                       <apply>
-                        <times />
-                        <ci>a</ci>
-                        <ci>b</ci>
-                       </apply>
-                       <apply>
-                        <times />
-                        <ci>a</ci>
-                        <ci>b</ci>
-                       </apply>
-                      </apply>
-                      <annotation-xml encoding='MathML-Presentation'>
-                       <mrow>
-                        <mrow>
-                         <mo>(</mo>
-                         <mrow>
-                          <mi>a</mi>
-                          <mo>&#8290;</mo>
-                          <mi>b</mi>
-                         </mrow>
-                         <mo>)</mo>
-                        </mrow>
-                        <mo>&#8290;</mo>
-                        <mrow>
-                         <mo>(</mo>
-                         <mrow>
-                          <mi>a</mi>
-                          <mo>&#8290;</mo>
-                          <mi>b</mi>
-                         </mrow>
-                         <mo>)</mo>
-                        </mrow>
-                       </mrow>
-                      </annotation-xml>
-                     </semantics>
-                    </math>
-  1. **x -> __0x104__**
-  2. **a -> __0x100__**
-  3. **b -> __0x101__**
-  4. **c -> __0x102__**
-  5. **d -> __0x103__**
-
-
-  * Step 1. Assign address locations 0x100, 0x101,  0x102, 0x103 and 0x104  to AR0, AR1, AR2, AR3 and AR4 respectively.
-
-```javascript
-MOV 0x100, AR0
-MOV 0x101, AR1
-MOV 0x102, AR2
-MOV 0x103, AR3
-MOV 0x104, AR4  
-```
-
-  * Step 2. Dereference AR0, AR1, AR2, AR3, AR4 to get the values of a, b, c, d and x respectively.
-
-```javascript
-MOV *AR0, AC0  ; Contents of a
-MOV *AR1, AC1  ; Contents of b
-MOV *AR2, AC2  ; Contents of c
-MOV *AR3, AC3  ; Contents of d
-MOV *AR4, AC4  ; Contents of x
-```
-  * Step 3. Now once we have the actual contents of a, b, c, d and x we are ready to actually perform the arithmetic operation assigned by the c statement.
-
-   NB: We can use the MPY operator from the C55x package but that will require us to move the contents in AR0 to the 31st to 16th bits of AC registers.
-
-```
-MOV *AR0, HI(AC0)
-MOV *AR1, HI(AC1)
-MPY AC0, AC1  ; This will enable us to store the value of a*b into AC0's register
-              ; Since it is squared, we need to repeat this operation again so we have
-MPY AC1, AC1  ; Here we multiply AC1 by itself and then store it back into AC1, the result is AC1 = AC1 * AC1 or AC1 = (*(AR0)) * (*(AR1))
-```
-
-  * Step 4. Now we need to take care of the data in c and d which is also stored in AC3 and AC4 using the format ( SUB src, dest  ==> dest = dest - src )
-
-```javascript
-SUB AC3, AC2  ; In this particular case we have AC2 = AC2 - AC3, resulting in the implementation of d = c-d.
-```
-                               
-
-  * Step 5. Now we combine both <?xml version='1.0'?>
-
+<?xml version='1.0'?>
 <math xmlns='http://www.w3.org/1998/Math/MathML'>
  <semantics>
   <apply>
@@ -214,10 +127,99 @@ SUB AC3, AC2  ; In this particular case we have AC2 = AC2 - AC3, resulting in th
   </annotation-xml>
  </semantics>
 </math>
-and then store into x.
-Remember (a*b)*(a*b) is stored in accumulator register AC1. Also (c - d) is stored in register AC2
 
-```javascr
+
+1. **x -> __0x104__**
+2. **a -> __0x100__**
+3. **b -> __0x101__**
+4. **c -> __0x102__**
+5. **d -> __0x103__**
+
+
+  * Step 1. Assign address locations 0x100, 0x101,  0x102, 0x103 and 0x104  to AR0, AR1, AR2, AR3 and AR4 respectively.
+
+```javascript
+MOV 0x100, AR0
+MOV 0x101, AR1
+MOV 0x102, AR2
+MOV 0x103, AR3
+MOV 0x104, AR4  
+```
+
+  * Step 2. Dereference AR0, AR1, AR2, AR3, AR4 to get the values of a, b, c, d and x respectively.
+
+```javascript
+MOV *AR0, AC0  ; Contents of a
+MOV *AR1, AC1  ; Contents of b
+MOV *AR2, AC2  ; Contents of c
+MOV *AR3, AC3  ; Contents of d
+MOV *AR4, AC4  ; Contents of x
+```
+  * Step 3. Now once we have the actual contents of a, b, c, d and x we are ready to actually perform the arithmetic operation assigned by the c statement.
+
+   NB: We can use the MPY operator from the C55x package but that will require us to move the contents in AR0 to the 31st to 16th bits of AC registers.
+
+```
+MOV *AR0, HI(AC0)
+MOV *AR1, HI(AC1)
+MPY AC0, AC1  ; This will enable us to store the value of a*b into AC0's register
+              ; Since it is squared, we need to repeat this operation again so we have
+MPY AC1, AC1  ; Here we multiply AC1 by itself and then store it back into AC1, the result is AC1 = AC1 * AC1 or AC1 = (*(AR0)) * (*(AR1))
+```
+
+  * Step 4. Now we need to take care of the data in c and d which is also stored in AC3 and AC4 using the format ( SUB src, dest  ==> dest = dest - src )
+
+```javascript
+SUB AC3, AC2  ; In this particular case we have AC2 = AC2 - AC3, resulting in the implementation of d = c-d.
+```
+                               
+
+  * Step 5. Now we combine both 
+<?xml version='1.0'?>
+<math xmlns='http://www.w3.org/1998/Math/MathML'>
+ <semantics>
+  <apply>
+   <times />
+   <apply>
+    <times />
+    <ci>a</ci>
+    <ci>b</ci>
+   </apply>
+   <apply>
+    <times />
+    <ci>a</ci>
+    <ci>b</ci>
+   </apply>
+  </apply>
+  <annotation-xml encoding='MathML-Presentation'>
+   <mrow>
+    <mrow>
+     <mo>(</mo>
+     <mrow>
+      <mi>a</mi>
+      <mo>&#8290;</mo>
+      <mi>b</mi>
+     </mrow>
+     <mo>)</mo>
+    </mrow>
+    <mo>&#8290;</mo>
+    <mrow>
+     <mo>(</mo>
+     <mrow>
+      <mi>a</mi>
+      <mo>&#8290;</mo>
+      <mi>b</mi>
+     </mrow>
+     <mo>)</mo>
+    </mrow>
+   </mrow>
+  </annotation-xml>
+ </semantics>
+</math> and then store into x.
+
+   Remember (a*b)*(a*b) is stored in accumulator register AC1. Also (c - d) is stored in register AC2
+
+```
 ADD AC1, AC2  ; This will implement the above algebraic expression the store the value into AC2.
 ```
 
@@ -229,7 +231,7 @@ MOV AC2, *AR0  ;storing contents of AC2 accumulator into ARO auxiliary register 
 
   * Step 7. Putting it all together
   
-```javascript
+```
 MOV 0x100, AR0  ;
 MOV 0x101, AR1  ;
 MOV 0x102, AR2  ;
