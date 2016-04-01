@@ -17,19 +17,19 @@ tags:
 
 ## C55x Architecture:
 Features:
-1. Its byte/word addressable.
-2. Codes are stored as bytes ==> 8-bit
-3. Data is stored in words ==> 16bits.
-4. Has Parallel instruction rules
-5. Variable-length instructions in memory
-6. Has several memory modes.
-7. MMR addresses.
+  1. Its byte/word addressable.
+  2. Codes are stored as bytes ==> 8-bit
+  3. Data is stored in words ==> 16bits.
+  4. Has Parallel instruction rules
+  5. Variable-length instructions in memory
+  6. Has several memory modes.
+  7. MMR addresses.
 ..* NB: Offsets of fields defined in .struct or .union constructs are always counted in words.
 
 ## Definition of Code Sections:
 The assembler identifies a code section if the section starts with a (.text directive) or (has any C55x assembly syntax) example:
 
-```javascript
+```
 .text ; PC is counted in bytes
 MOV AR1, AR0
 ADD #1, AC0
@@ -41,7 +41,7 @@ foo    .word 1
 
 +       In the example above, the machine code will look something of this sort:
 
-```javascript
+```
 000000         ;----> .text  PC is counted in bytes
 000000 2298    ;----> MOV AR1, AR0
 000002 4010    ;----> ADD #1, AC0
@@ -62,14 +62,14 @@ foo    .word 1
       - c. Then we perform the necessary operations from the c code
       - So expressing the steps a, b and c in C55x assembly syntax we have:
 
-```javascript
+```
 MOV 0x100, AR0  ; Move address of a in AR0
 MOV 0x101, AR1  ; Move address of b in AR1
 MOV 0x102, AR2  ; Move address of x in AR2
 ```
 +         Then the next step is to move the actual contents in a and b in order to perform the operation.
 
-```javascript
+```
 MOV *ARO, AC0  ; Move contents of 0x100 to accumulator AC0
 MOV *AR1, AC1  ; Move contents of 0x101 to accumulator AC1
 SUB AC1, AC0  ; Subtract AC1 from AC0 => AC0 = a - b
@@ -82,9 +82,9 @@ MOV AC0, *AR2     ; Store AC0 in 0x102
   * Remember the process is simply Assign address to AR0 to AR7 address {auxiliary addresses for input and output storage}
   * Then move the values from the addresses into AC0 - AC7 {accumulators registers for data manupulation}
   * The next step is to perform the reverse of step number 1. by storing the resultant value stored in AC0 back into the designation register assigned in step 1.
+
 ### Another example: 
                     <?xml version='1.0'?>
-                    <!DOCTYPE math PUBLIC '-//W3C//DTD MathML 2.0//EN' 'http://www.w3.org/TR/MathML2/dtd/mathml2.dtd'>
                     <math xmlns='http://www.w3.org/1998/Math/MathML'>
                      <semantics>
                       <apply>
@@ -125,11 +125,11 @@ MOV AC0, *AR2     ; Store AC0 in 0x102
                       </annotation-xml>
                      </semantics>
                     </math>
-  1. **__x-> 0x104__**
-  2. **__a -> 0x100__**
-  3. **__b -> 0x101__**
-  4. **__c-> 0x102__**
-  5. **__d-> 0x103__**
+  1. **x -> __0x104__**
+  2. **a -> __0x100__**
+  3. **b -> __0x101__**
+  4. **c -> __0x102__**
+  5. **d -> __0x103__**
 
 
   * Step 1. Assign address locations 0x100, 0x101,  0x102, 0x103 and 0x104  to AR0, AR1, AR2, AR3 and AR4 respectively.
@@ -215,7 +215,7 @@ SUB AC3, AC2  ; In this particular case we have AC2 = AC2 - AC3, resulting in th
 and then store into x.
 Remember (a*b)*(a*b) is stored in accumulator register AC1. Also (c - d) is stored in register AC2
 
-```javascript
+```javascr
 ADD AC1, AC2  ; This will implement the above algebraic expression the store the value into AC2.
 ```
 
