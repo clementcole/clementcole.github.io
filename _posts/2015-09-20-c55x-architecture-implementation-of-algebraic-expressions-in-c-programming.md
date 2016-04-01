@@ -89,11 +89,11 @@ MOV AC0, *AR2     ; Store AC0 in 0x102
 
    `x = ((a * b)^2) + (c - d);`
 
-1. **x -> __0x104__**
-2. **a -> __0x100__**
-3. **b -> __0x101__**
-4. **c -> __0x102__**
-5. **d -> __0x103__**
+1. **x -> 0x104**
+2. **a -> 0x100**
+3. **b -> 0x101**
+4. **c -> 0x102**
+5. **d -> 0x103**
 
 
   * Step 1. Assign address locations 0x100, 0x101,  0x102, 0x103 and 0x104  to AR0, AR1, AR2, AR3 and AR4 respectively.
