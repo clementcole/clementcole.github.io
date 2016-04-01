@@ -16,17 +16,18 @@ tags:
 
 
 ## C55x Architecture:
-Features:(i) Its byte/word addressable.
-         (ii) Codes are stored as bytes ==> 8-bit
-         (iii) Data is stored in words ==> 16bits.
-         (iv) Has Parallel instruction rules
-         (v) Variable-length instructions in memory
-         (vi) Has several memory modes.
-         (vii) MMR addresses.
-         NB: Offsets of fields defined in .struct or .union constructs are always counted in words.
+Features:
+1. Its byte/word addressable.
+2. Codes are stored as bytes ==> 8-bit
+3. Data is stored in words ==> 16bits.
+4. Has Parallel instruction rules
+5. Variable-length instructions in memory
+6. Has several memory modes.
+7. MMR addresses.
+..* NB: Offsets of fields defined in .struct or .union constructs are always counted in words.
 
 ## Definition of Code Sections:
-  ###  The assembler identifies a code section if the section starts with a (.text directive) or (has any C55x assembly syntax) example:
+### The assembler identifies a code section if the section starts with a (.text directive) or (has any C55x assembly syntax) example:
 ```
            1.   .text ; PC is counted in bytes
            2.   MOV AR1, AR0
@@ -37,7 +38,7 @@ Features:(i) Its byte/word addressable.
            7.   foo    .word 1
 ```
 
-    + In the example above, the machine code will look something of this sort:
++       In the example above, the machine code will look something of this sort:
 ```
             1. 000000         ----> .text ; PC is counted in bytes
             2. 000000 2298    ----> MOV AR1, AR0
@@ -50,20 +51,21 @@ Features:(i) Its byte/word addressable.
                000003 0007    ---->  7
             7. 000004 0001    ---->
 ```
-    . So from 1 - 3, the PC counts in bytes AR1 and AR0 are addresses to accumulator registers. AR1 and AR0 are accumulator registers that hold the address of auxiliary devices such as buses
+     So from 1 - 3, the PC counts in bytes AR1 and AR0 are addresses to accumulator registers. AR1 and AR0 are accumulator registers that hold the address of auxiliary devices such as buses
       or links to other peripherals.
-    . For the C code such as " x = (a*b) + (a - b)"
+     For the C code such as " x = (a*b) + (a - b)"
       - Lets assume that the memory address for a is 0x100 and that of b is 0x101 and that of x is 0x102
       - a. First we need to move a to an auxiliary accumulator register
       - b. Second we have to move b to another accumulator register
       - c. Then we perform the necessary operations from the c code
       - So expressing the steps a, b and c in C55x assembly syntax we have:
+
 ```
           MOV 0x100, AR0  ; Move address of a in AR0
           MOV 0x101, AR1  ; Move address of b in AR1
           MOV 0x102, AR2  ; Move address of x in AR2
 ```
-      + Then the next step is to move the actual contents in a and b in order to perform the operation.
++         Then the next step is to move the actual contents in a and b in order to perform the operation.
 ```
           MOV *ARO, AC0  ; Move contents of 0x100 to accumulator AC0
           MOV *AR1, AC1  ; Move contents of 0x101 to accumulator AC1
@@ -71,51 +73,9 @@ Features:(i) Its byte/word addressable.
           MOV *AR0, HI(AC1) ; Move AR0 to (31 - 16) bits of AC1
           MOV *AR1, HI(AC2) ; Move AR1 to (31 - 16) bits of AC2
           MPY AC2, AC1      ; Multiply AC1 and AC2 ==> AC1 = a*b
-          ADD AC1, AC0      ; Add AC0 and AC1 ==> AC0 = <?xml version='1.0'?>
-                                                        <!DOCTYPE math PUBLIC '-//W3C//DTD MathML 2.0//EN' 'http://www.w3.org/TR/MathML2/dtd/mathml2.dtd'>
-                                                          <math xmlns='http://www.w3.org/1998/Math/MathML'>
-                                                            <semantics>
-                                                              <apply>
-                                                                <plus />
-                                                                   <apply>
-                                                                    <plus />
-                                                                      <ci>a</ci>
-                                                                        <apply>
-                                                                          <times />
-                                                                            <cn type='integer'>-1</cn>
-                                                                              <ci>b</ci>
-                                                                    </apply>
-                                                               </apply>
-                                                                                                     <apply>
-                                                                                                      <times />
-                                                                                                      <ci>a</ci>
-                                                                                                      <ci>b</ci>
-                                                                                                     </apply>
-                                                                                                    </apply>
-                                                                                                    <annotation-xml encoding='MathML-Presentation'>
-                                                                                                     <mrow>
-                                                                                                      <mrow>
-                                                                                                       <mo>(</mo>
-                                                                                                       <mrow>
-                                                                                                        <mi>a</mi>
-                                                                                                        <mo>-</mo>
-                                                                                                        <mi>b</mi>
-                                                                                                       </mrow>
-                                                                                                       <mo>)</mo>
-                                                                                                      </mrow>
-                                                                                                      <mo>+</mo>
-                                                                                                      <mrow>
-                                                                                                       <mi>a</mi>
-                                                                                                       <mo>&#8290;</mo>
-                                                                                                       <mi>b</mi>
-                                                                                                      </mrow>
-                                                                                                     </mrow>
-                                                                                                    </annotation-xml>
-                                                                                                   </semantics>
-                                                                                                  </math>
-
-
+          ADD AC1, AC0      ; Add AC0 and AC1 ==> AC0 = 
           MOV AC0, *AR2     ; Store AC0 in 0x102
+```
     ; Remember the process is simply Assign address to AR0 to AR7 address {auxiliary addresses for input and output storage}
     ; Then move the values from the addresses into AC0 - AC7 {accumulators registers for data manupulation}
     ; The next step is to perform the reverse of step number 1. by storing the resultant value stored in AC0 back into the designation register assigned in step 1.
