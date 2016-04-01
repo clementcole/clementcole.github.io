@@ -85,49 +85,9 @@ MOV AC0, *AR2     ; Store AC0 in 0x102
   * Then move the values from the addresses into AC0 - AC7 {accumulators registers for data manupulation}
   * The next step is to perform the reverse of step number 1. by storing the resultant value stored in AC0 back into the designation register assigned in step 1.
 
-### Another example: 
-<?xml version='1.0'?>
-<math xmlns='http://www.w3.org/1998/Math/MathML'>
- <semantics>
-  <apply>
-   <times />
-   <apply>
-    <times />
-    <ci>a</ci>
-    <ci>b</ci>
-   </apply>
-   <apply>
-    <times />
-    <ci>a</ci>
-    <ci>b</ci>
-   </apply>
-  </apply>
-  <annotation-xml encoding='MathML-Presentation'>
-   <mrow>
-    <mrow>
-     <mo>(</mo>
-     <mrow>
-      <mi>a</mi>
-      <mo>&#8290;</mo>
-      <mi>b</mi>
-     </mrow>
-     <mo>)</mo>
-    </mrow>
-    <mo>&#8290;</mo>
-    <mrow>
-     <mo>(</mo>
-     <mrow>
-      <mi>a</mi>
-      <mo>&#8290;</mo>
-      <mi>b</mi>
-     </mrow>
-     <mo>)</mo>
-    </mrow>
-   </mrow>
-  </annotation-xml>
- </semantics>
-</math>
+### Another example:
 
+   x = ((a * b)^2) + (c - d)
 
 1. **x -> __0x104__**
 2. **a -> __0x100__**
@@ -174,49 +134,7 @@ SUB AC3, AC2  ; In this particular case we have AC2 = AC2 - AC3, resulting in th
 ```
                                
 
-  * Step 5. Now we combine both 
-<?xml version='1.0'?>
-<math xmlns='http://www.w3.org/1998/Math/MathML'>
- <semantics>
-  <apply>
-   <times />
-   <apply>
-    <times />
-    <ci>a</ci>
-    <ci>b</ci>
-   </apply>
-   <apply>
-    <times />
-    <ci>a</ci>
-    <ci>b</ci>
-   </apply>
-  </apply>
-  <annotation-xml encoding='MathML-Presentation'>
-   <mrow>
-    <mrow>
-     <mo>(</mo>
-     <mrow>
-      <mi>a</mi>
-      <mo>&#8290;</mo>
-      <mi>b</mi>
-     </mrow>
-     <mo>)</mo>
-    </mrow>
-    <mo>&#8290;</mo>
-    <mrow>
-     <mo>(</mo>
-     <mrow>
-      <mi>a</mi>
-      <mo>&#8290;</mo>
-      <mi>b</mi>
-     </mrow>
-     <mo>)</mo>
-    </mrow>
-   </mrow>
-  </annotation-xml>
- </semantics>
-</math> and then store into x.
-
+  * Step 5. Now we combine both `((a * b)^2) + (c - d)`
    Remember (a*b)*(a*b) is stored in accumulator register AC1. Also (c - d) is stored in register AC2
 
 ```
