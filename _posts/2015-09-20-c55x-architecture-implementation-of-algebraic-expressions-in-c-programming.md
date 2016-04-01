@@ -87,7 +87,7 @@ MOV AC0, *AR2     ; Store AC0 in 0x102
 
 ### Another example:
 
-   x = ((a * b)^2) + (c - d)
+   `x = ((a * b)^2) + (c - d);`
 
 1. **x -> __0x104__**
 2. **a -> __0x100__**
@@ -134,7 +134,7 @@ SUB AC3, AC2  ; In this particular case we have AC2 = AC2 - AC3, resulting in th
 ```
                                
 
-  * Step 5. Now we combine both `((a * b)^2) + (c - d)`
+  * Step 5. Now we combine both `((a * b)^2) + (c - d);`
    Remember (a*b)*(a*b) is stored in accumulator register AC1. Also (c - d) is stored in register AC2
 
 ```
