@@ -29,7 +29,8 @@ Features:
 ..* NB: Offsets of fields defined in .struct or .union constructs are always counted in words.
 
 ## Definition of Code Sections:
-The assembler identifies a code section if the section starts with a (.text directive) or (has any C55x assembly syntax) example:
+The assembler identifies a code section if the section starts with a **.text** directive or 
+has any **C55x assembly syntax** example:
 
 ```
 .text ; PC is counted in bytes
