@@ -17,13 +17,15 @@ tags:
 
 ## C55x Architecture:
 Features:
-  1. Its byte/word addressable.
-  2. Codes are stored as bytes ==> 8-bit
-  3. Data is stored in words ==> 16bits.
-  4. Has Parallel instruction rules
-  5. Variable-length instructions in memory
-  6. Has several memory modes.
-  7. MMR addresses.
+
+1. Its byte/word addressable.
+2. Codes are stored as bytes ==> 8-bit
+3. Data is stored in words ==> 16bits.
+4. Has Parallel instruction rules
+5. Variable-length instructions in memory
+6. Has several memory modes.
+7. MMR addresses.
+
 ..* NB: Offsets of fields defined in .struct or .union constructs are always counted in words.
 
 ## Definition of Code Sections:
@@ -171,7 +173,7 @@ SUB AC3, AC2  ; In this particular case we have AC2 = AC2 - AC3, resulting in th
                                
 
   * Step 5. Now we combine both <?xml version='1.0'?>
-<!DOCTYPE math PUBLIC '-//W3C//DTD MathML 2.0//EN' 'http://www.w3.org/TR/MathML2/dtd/mathml2.dtd'>
+
 <math xmlns='http://www.w3.org/1998/Math/MathML'>
  <semantics>
   <apply>
